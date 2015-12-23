@@ -37,6 +37,7 @@ homebrew_installed_packages:
   - nvm
   - php56
   - php56-xdebug
+  - php56-opcache
   - ssh-copy-id
 #  - cowsay
 #  - ios-sim
@@ -69,6 +70,7 @@ homebrew_cask_apps:
 #  - fing
   - firefox
   - handbrake
+  - iterm2
   - java
 #  - karabiner
 #  - limechat

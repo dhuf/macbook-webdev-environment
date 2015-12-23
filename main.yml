@@ -16,7 +16,7 @@
         state: directory
     - name: create symlinks for LaunchAgents
       file:
-        path: "~/Library/LaunchAgents/{{ item.key }}.plist"
+        path: "/Library/LaunchDaemons/homebrew.mxcl.{{ item.key }}.plist"
         state: link
         src: "/usr/local/opt/{{ item.value }}.plist"
       with_dict:
@@ -29,13 +29,31 @@
       lineinfile:
         dest: /usr/local/etc/nginx/nginx.conf
         regexp: "^        listen.*8080"
-        line: "        listen 80;"
+        line: "listen 80;"
+
+    - name: 'configure nginx'
+      template:
+        dest: '/usr/local/etc/nginx/nginx.conf'
+        src: 'files/nginx/nginx.conf.j2'
+        owner: "{{ user }}"
+
+    - name: 'configure php-fpm'
+      template:
+        dest: '/usr/local/etc/php/5.6/php-fpm.conf'
+        src: 'files/php56/php-fpm.conf.j2'
+        owner: "{{ user }}"
+
+    - name: 'configure mariadb'
+      template:
+        dest: '/usr/local/etc/my.cnf'
+        src: 'files/mariadb/my.cnf.j2'
+        owner: "{{ user }}"
 
     - name: set permissions
       file:
         path: "{{ item }}"
         state: directory
-        owner: 501 #uid of first user
+        owner: "{{ user }}"
         group: staff
         mode: 0775
         recurse: yes
@@ -43,6 +61,7 @@
         - /usr/local/var/log/
         - /usr/local/etc/nginx/
         - /usr/local/var/run/
+        - /usr/local/var/mysql/
 
 
 

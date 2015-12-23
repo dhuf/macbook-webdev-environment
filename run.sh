@@ -22,4 +22,4 @@ sudo ansible-galaxy install -r ansible-playbooks.requirements.txt --force
 #
 # Run Playbook
 #
-sudo ansible-playbook main.yml -i inventory
+sudo ansible-playbook main.yml -i inventory -e "user=`whoami`"
