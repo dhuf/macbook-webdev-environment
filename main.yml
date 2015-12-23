@@ -8,13 +8,51 @@
 
   roles:
     - geerlingguy.homebrew
-    - geerlingguy.dotfiles
 
   tasks:
-    - include: tasks/ansible-setup.yml
-    - include: tasks/preferences.yml
+    - name: create folder for LaunchAgents
+      file:
+        path: ~/Library/LaunchAgents
+        state: directory
+    - name: create symlinks for LaunchAgents
+      file:
+        path: "~/Library/LaunchAgents/{{ item.key }}.plist"
+        state: link
+        src: "/usr/local/opt/{{ item.value }}.plist"
+      with_dict:
+        elasticsearch17: elasticsearch17/homebrew.mxcl.elasticsearch17
+        mariadb: mariadb/homebrew.mxcl.mariadb
+        nginx: nginx/homebrew.mxcl.nginx
+        php56: php56/homebrew.mxcl.php56
 
-    # TODO: Use sudo once .osx can be run via root with no user interaction.
-    - name: Run .osx dotfiles.
-      shell: ~/.osx --no-restart
-      changed_when: false
+    - name: 'nginx: set listen port to 80'
+      lineinfile:
+        dest: /usr/local/etc/nginx/nginx.conf
+        regexp: "^        listen.*8080"
+        line: "        listen 80;"
+
+    - name: set permissions
+      file:
+        path: "{{ item }}"
+        state: directory
+        owner: 501 #uid of first user
+        group: staff
+        mode: 0775
+        recurse: yes
+      with_items:
+        - /usr/local/var/log/
+        - /usr/local/etc/nginx/
+        - /usr/local/var/run/
+
+
+
+#To have launchd start homebrew/versions/elasticsearch17 at login:
+#  mkdir -p ~/Library/LaunchAgents
+#  ln -sfv /usr/local/opt/elasticsearch17/*.plist ~/Library/LaunchAgents
+#Then to load homebrew/versions/elasticsearch17 now:
+#  launchctl load ~/Library/LaunchAgents/homebrew.mxcl.elasticsearch17.plist
+#Or, if you don't want/need launchctl, you can just run:
+#  elasticsearch --config=/usr/local/opt/elasticsearch17/config/elasticsearch.yml
+
+
+# /usr/local/opt/php56/sbin/php-fpm --fpm-config /usr/local/etc/php/5.6/php-fpm.conf

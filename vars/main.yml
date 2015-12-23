@@ -19,6 +19,7 @@ homebrew_installed_packages:
   - bash-completion
   - boot2docker
   - docker
+  - elasticsearch17
   - gettext
   - git
   - go
@@ -30,23 +31,26 @@ homebrew_installed_packages:
   - packer
   - python
   - sqlite
-  - mysql
+  - mariadb
+  - nginx
   - npm
   - nvm
   - php56
   - php56-xdebug
   - ssh-copy-id
-  - cowsay
-  - ios-sim
+#  - cowsay
+#  - ios-sim
   - readline
   - subversion
   - kdiff3
   - openssl
   - pv
-  - drush
+#  - drush
   - wget
   - wrk
+  - zsh
   - brew-cask
+  - composer
 
 homebrew_taps:
   - caskroom/cask
@@ -57,26 +61,29 @@ homebrew_taps:
 
 homebrew_cask_appdir: /Applications
 homebrew_cask_apps:
-  - adium
+#  - adium
+  - alfred
   - bettertouchtool
   - google-chrome
   - dropbox
-  - fing
+#  - fing
   - firefox
   - handbrake
-  - karabiner
-  - limechat
-  - licecap
+  - java
+#  - karabiner
+#  - limechat
+#  - licecap
   - macvim
   - menumeters
   - nvalt
+  - phpstorm
   - sequel-pro
   - skype
-  - skitch
-  - seil
+#  - skitch
+#  - seil
   - sublime-text # Note - Sublime Text 2 only, at this time...
   - textmate
-  - timemachineeditor
+#  - timemachineeditor
   - tower
   - transmit
   - vagrant
