@@ -56,6 +56,24 @@ Selenium
 
 
 
+Build grunt & co.
+-----------------
+```
+cd Packages/Sites/Vendor.Site/
+npm install
+bower install
+grunt
+```
+
+
+Inspired by
+-----------
+* https://gist.githubusercontent.com/frdmn/7853158/raw/bash_aliases
+* http://blog.frd.mn/install-nginx-php-fpm-mysql-and-phpmyadmin-on-os-x-mavericks-using-homebrew/
+* https://robots.thoughtbot.com/starting-and-stopping-background-services-with-homebrew
+* http://cmall.github.io/LocalHomePage/
+
+
 # Mac Development Ansible Playbook
 
 This playbook installs and configures most of the software I use on my Mac for web and software development. Some things in OS X are difficult to automate (notably, the Mac App Store and certain tools from Apple), so I still have some manual installation steps, but at least it's all documented here.
