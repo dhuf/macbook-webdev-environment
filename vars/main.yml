@@ -19,6 +19,7 @@ homebrew_installed_packages:
   - bash-completion
   - behat
   - boot2docker
+  - dnsmasq
   - docker
   - elasticsearch17
   - gettext

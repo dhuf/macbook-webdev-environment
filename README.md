@@ -1,9 +1,21 @@
 
 
+Install
+-------
+```
+sudo mysql_secure_installation
+```
 
 
+Test mysql connection
+```
+mysql -uroot -p
+```
 
-
+Test nginx
+```
+curl -v http://127.0.0.1/
+```
 
 Check if php-fpm is running
 

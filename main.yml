@@ -10,6 +10,18 @@
     - geerlingguy.homebrew
 
   tasks:
+    - name: configure dnsmasq
+      copy:
+        dest: "/usr/local/etc/dnsmasq.conf"
+        src: "files/dnsmasq.conf"
+        owner: "{{ user }}"
+
+    - name: configure DNS resolver
+      copy:
+        dest: "/etc/resolver/"
+        src: "files/resolver/"
+        owner: "{{ user }}"
+
     - name: install grunt, gulp, yo, bower
       npm:
         name: "{{ item }}"
@@ -85,17 +97,12 @@
         src: "/usr/local/opt/{{ item.value }}.plist"
       with_dict:
         elasticsearch17: elasticsearch17/homebrew.mxcl.elasticsearch17
+        dnsmasq: dnsmasq/homebrew.mxcl.dnsmasq
         mariadb: mariadb/homebrew.mxcl.mariadb
         nginx: nginx/homebrew.mxcl.nginx
         php70: php70/homebrew.mxcl.php70
         php56: php56/homebrew.mxcl.php56
         php55: php55/homebrew.mxcl.php55
-
-    - name: 'nginx: set listen port to 80'
-      lineinfile:
-        dest: /usr/local/etc/nginx/nginx.conf
-        regexp: "^        listen.*8080"
-        line: "listen 80;"
 
     - name: 'configure nginx'
       template:

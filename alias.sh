@@ -28,6 +28,11 @@ alias use_php55="sudo brew unlink php55 && sudo brew unlink php56 && sudo brew u
 alias use_php56="sudo brew unlink php55 && sudo brew unlink php56 && sudo brew unlink php70 && sudo brew link php56"
 alias use_php70="sudo brew unlink php55 && sudo brew unlink php56 && sudo brew unlink php70 && sudo brew link php70"
 
+alias dnsmasq.start='sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist'
+alias dnsmasq.stop='sudo launchctl unload /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist'
+alias dnsmasq.restart='dnsmasq.stop && dnsmasq.start'
+
+
 alias debugproxy="${GOPATH}/src/github.com/dfeyer/flow-debugproxy/flow-debugproxy --xdebug 127.0.0.1:9000 --ide 127.0.0.1:9010 --vv"
 
 alias nginx.logs.error='tail -250f /usr/local/etc/nginx/logs/error.log'
