@@ -10,6 +10,23 @@
     - geerlingguy.homebrew
 
   tasks:
+    - name: install grunt, gulp, yo, bower
+      npm:
+        name: "{{ item }}"
+        state: latest
+        global: yes
+      with_items:
+        - grunt-cli
+        - gulp
+        - yo
+        - bower
+
+    - name: install compass
+      gem:
+        name: compass
+        state: latest
+        user_install: no
+
     - name: checkout flow-debugproxy
       git:
         repo: https://github.com/dfeyer/flow-debugproxy.git
