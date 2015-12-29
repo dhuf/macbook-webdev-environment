@@ -3,7 +3,7 @@
 ;;;;;;;;;;;;;;;;;;;;;
 
 ; All relative paths in this configuration file are relative to PHP's install
-; prefix (/usr/local/Cellar/php56/5.6.15). This prefix can be dynamically changed by using the
+; prefix (/usr/local/Cellar/php55/5.5.30). This prefix can be dynamically changed by using the
 ; '-p' argument from the command line.
 
 ; Include one or more files. If glob(3) exists, it is used to include a bunch of
@@ -11,8 +11,8 @@
 ; file.
 ; Relative path can also be used. They will be prefixed by:
 ;  - the global prefix if it's been set (-p argument)
-;  - /usr/local/Cellar/php56/5.6.15 otherwise
-include=/usr/local/etc/php/5.6/fpm.d/*.conf
+;  - /usr/local/Cellar/php55/5.5.30 otherwise
+include=/usr/local/etc/php/5.5/fpm.d/*.conf
 
 ;;;;;;;;;;;;;;;;;;
 ; Global Options ;
@@ -138,7 +138,7 @@ daemonize = no
 ; - 'chdir'
 ; - 'php_values'
 ; - 'php_admin_values'
-; When not set, the global prefix (or /usr/local/Cellar/php56/5.6.15) applies instead.
+; When not set, the global prefix (or /usr/local/Cellar/php55/5.5.30) applies instead.
 ; Note: This directive can also be relative to the global prefix.
 ; Default Value: none
 ;prefix = /path/to/pools/$pool
@@ -161,7 +161,7 @@ group = staff
 ;                            (IPv6 and IPv4-mapped) on a specific port;
 ;   '/path/to/unix/socket' - to listen on a unix socket.
 ; Note: This value is mandatory.
-listen = 127.0.0.1:9560
+listen = 127.0.0.1:9550
 
 ; Set listen(2) backlog.
 ; Default Value: 65535 (-1 on FreeBSD and OpenBSD)
@@ -175,11 +175,6 @@ listen = 127.0.0.1:9560
 ;listen.owner = _www
 ;listen.group = _www
 listen.mode = 0666
-; When POSIX Access Control Lists are supported you can set them using
-; these options, value is a comma separated list of user/group names.
-; When set, listen.owner and listen.group are ignored
-;listen.acl_users =
-;listen.acl_groups =
  
 ; List of addresses (IPv4/IPv6) of FastCGI clients which are allowed to connect.
 ; Equivalent to the FCGI_WEB_SERVER_ADDRS environment variable in the original
@@ -351,7 +346,7 @@ pm.max_spare_servers = 5
 ;   last request memory:  0
 ;
 ; Note: There is a real-time FPM status monitoring sample web page available
-;       It's available in: /usr/local/Cellar/php56/5.6.15/share/php/fpm/status.html
+;       It's available in: /usr/local/Cellar/php55/5.5.30/share/php/fpm/status.html
 ;
 ; Note: The value must start with a leading slash (/). The value can be
 ;       anything, but it may not be a good idea to use the .php extension or it
@@ -526,7 +521,7 @@ pm.max_spare_servers = 5
 ; instead.
 
 ; Note: path INI options can be relative and will be expanded with the prefix
-; (pool, global or /usr/local/Cellar/php56/5.6.15)
+; (pool, global or /usr/local/Cellar/php55/5.5.30)
 
 ; Default Value: nothing is defined by default except the values in php.ini and
 ;                specified at startup with the -d argument

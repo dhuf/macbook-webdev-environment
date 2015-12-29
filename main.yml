@@ -24,6 +24,7 @@
         mariadb: mariadb/homebrew.mxcl.mariadb
         nginx: nginx/homebrew.mxcl.nginx
         php56: php56/homebrew.mxcl.php56
+        php55: php55/homebrew.mxcl.php55
 
     - name: 'nginx: set listen port to 80'
       lineinfile:
@@ -39,15 +40,36 @@
 
     - name: 'configure php-fpm'
       template:
-        dest: '/usr/local/etc/php/5.6/php-fpm.conf'
-        src: 'files/php56/php-fpm.conf.j2'
+        dest: "/usr/local/etc/php/{{ item }}/php-fpm.conf"
+        src: "files/php{{ item | replace('.', '') }}/php-fpm.conf.j2"
         owner: "{{ user }}"
+      with_items:
+        - 5.5
+        - 5.6
+
+    - name: 'create configuration folders for php-fpm'
+      file:
+        path: "/usr/local/etc/php/{{ item }}/fpm.d"
+        state: directory
+        owner: "{{ user }}"
+      with_items:
+        - 5.5
+        - 5.6
 
     - name: 'configure mariadb'
       template:
         dest: '/usr/local/etc/my.cnf'
         src: 'files/mariadb/my.cnf.j2'
         owner: "{{ user }}"
+
+    - name: 'create configuration folders for nginx'
+      file:
+        path: "{{ item }}"
+        state: directory
+        owner: "{{ user }}"
+      with_items:
+        - /usr/local/etc/nginx/sites-available
+        - /usr/local/etc/nginx/sites-enabled
 
     - name: set permissions
       file:
