@@ -10,6 +10,30 @@
     - geerlingguy.homebrew
 
   tasks:
+    - name: Create folder for vhosts
+      file:
+        path: "/Users/{{ user }}/vhosts"
+        state: directory
+        owner: "{{ user }}"
+
+    - name: Unlink other PHP versions
+      homebrew:
+        name: "{{ item }}"
+        state: unlinked
+      with_items:
+        - php55
+        - php56
+
+    - name: Install PHP 7
+      homebrew:
+        name: php70
+        state: latest
+
+    - name: Remove default configuration folder for PHP 7
+      file:
+        path: /usr/local/etc/php/7.0/php-fpm.d
+        state: absent
+
     - name: create folder for LaunchAgents
       file:
         path: ~/Library/LaunchAgents
@@ -23,6 +47,7 @@
         elasticsearch17: elasticsearch17/homebrew.mxcl.elasticsearch17
         mariadb: mariadb/homebrew.mxcl.mariadb
         nginx: nginx/homebrew.mxcl.nginx
+        php70: php70/homebrew.mxcl.php70
         php56: php56/homebrew.mxcl.php56
         php55: php55/homebrew.mxcl.php55
 
@@ -46,6 +71,7 @@
       with_items:
         - 5.5
         - 5.6
+        - 7.0
 
     - name: 'create configuration folders for php-fpm'
       file:
@@ -55,6 +81,7 @@
       with_items:
         - 5.5
         - 5.6
+        - 7.0
 
     - name: 'configure mariadb'
       template:

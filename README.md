@@ -1,3 +1,18 @@
+
+
+
+
+
+
+
+Check if php-fpm is running
+
+```
+sudo lsof -Pni4 | grep LISTEN | grep php
+```
+
+
+
 # Mac Development Ansible Playbook
 
 This playbook installs and configures most of the software I use on my Mac for web and software development. Some things in OS X are difficult to automate (notably, the Mac App Store and certain tools from Apple), so I still have some manual installation steps, but at least it's all documented here.

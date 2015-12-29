@@ -35,9 +35,18 @@ homebrew_installed_packages:
   - nginx
   - npm
   - nvm
+  - php55
+  - php55-xdebug
+  - php55-opcache
+  - php55-mcrypt
   - php56
   - php56-xdebug
   - php56-opcache
+  - php56-mcrypt
+  - php70
+  - php70-xdebug
+  - php70-opcache
+  - php70-mcrypt
   - ssh-copy-id
 #  - cowsay
 #  - ios-sim
