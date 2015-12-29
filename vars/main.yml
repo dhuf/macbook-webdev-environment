@@ -55,6 +55,7 @@ homebrew_installed_packages:
   - php70-mcrypt
   - php70-imagick
   - phpunit
+  - selenium-server-standalone
   - ssh-copy-id
 #  - cowsay
 #  - ios-sim

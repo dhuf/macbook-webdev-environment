@@ -49,9 +49,19 @@
 
     - name: create folder for LaunchAgents
       file:
-        path: ~/Library/LaunchAgents
+        path: "/Users/{{ user }}/Library/LaunchAgents"
         state: directory
+        owner: "{{ user }}"
+
     - name: create symlinks for LaunchAgents
+      file:
+        path: "/Users/{{ user }}/Library/LaunchAgents/homebrew.mxcl.{{ item.key }}.plist"
+        state: link
+        src: "/usr/local/opt/{{ item.value }}.plist"
+      with_dict:
+        selenium-server-standalone: selenium-server-standalone/homebrew.mxcl.selenium-server-standalone
+
+    - name: create symlinks for LaunchDaemons
       file:
         path: "/Library/LaunchDaemons/homebrew.mxcl.{{ item.key }}.plist"
         state: link
