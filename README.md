@@ -13,6 +13,14 @@ sudo lsof -Pni4 | grep LISTEN | grep php
 
 
 
+Xdebug
+------
+
+https://confluence.jetbrains.com/display/PhpStorm/Configure+Xdebug+Helper+for+Chrome+to+be+used+with+PhpStorm
+https://confluence.jetbrains.com/display/PhpStorm/Browser+Debugging+Extensions
+https://chrome.google.com/webstore/detail/xdebug-helper/eadndfjplgieldjbigjakmdgkmoaaaoc
+
+
 # Mac Development Ansible Playbook
 
 This playbook installs and configures most of the software I use on my Mac for web and software development. Some things in OS X are difficult to automate (notably, the Mac App Store and certain tools from Apple), so I still have some manual installation steps, but at least it's all documented here.

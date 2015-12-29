@@ -17,6 +17,7 @@ homebrew_installed_packages:
   - ansible
   - autoconf
   - bash-completion
+  - behat
   - boot2docker
   - docker
   - elasticsearch17
@@ -24,6 +25,7 @@ homebrew_installed_packages:
   - git
   - go
   - gpg
+  - htop
   - hub
   - iperf
   - libdvdcss
@@ -39,14 +41,20 @@ homebrew_installed_packages:
   - php55-xdebug
   - php55-opcache
   - php55-mcrypt
+  - php55-imagick
+  - php55-gmagick
   - php56
   - php56-xdebug
   - php56-opcache
   - php56-mcrypt
+  - php56-imagick
+  - php56-gmagick
   - php70
   - php70-xdebug
   - php70-opcache
   - php70-mcrypt
+  - php70-imagick
+  - phpunit
   - ssh-copy-id
 #  - cowsay
 #  - ios-sim
