@@ -21,6 +21,25 @@ https://confluence.jetbrains.com/display/PhpStorm/Browser+Debugging+Extensions
 https://chrome.google.com/webstore/detail/xdebug-helper/eadndfjplgieldjbigjakmdgkmoaaaoc
 
 
+Flow Debug Proxy
+----------------
+https://github.com/dfeyer/flow-debugproxy
+https://discuss.neos.io/t/how-to-debug-a-flow-application-with-xdebug-and-phpstorm/204/6
+
+```
+export GOPATH="${HOME}/go"
+mkdir -p ${GOPATH}/src/github.com/dfeyer/flow-debugproxy
+git clone https://github.com/dfeyer/flow-debugproxy.git ${GOPATH}/src/github.com/dfeyer/flow-debugproxy
+cd ${GOPATH}/src/github.com/dfeyer/flow-debugproxy
+go get
+go build
+```
+
+```
+${GOPATH}/src/github.com/dfeyer/flow-debugproxy/flow-debugproxy --xdebug 127.0.0.1:9000 --ide 127.0.0.1:9010 --vv
+```
+
+
 # Mac Development Ansible Playbook
 
 This playbook installs and configures most of the software I use on my Mac for web and software development. Some things in OS X are difficult to automate (notably, the Mac App Store and certain tools from Apple), so I still have some manual installation steps, but at least it's all documented here.

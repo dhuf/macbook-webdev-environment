@@ -1,5 +1,7 @@
 #!/bin/bash
 
+export GOPATH="${HOME}/go"
+
 #
 # Install Homebrew
 #

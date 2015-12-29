@@ -10,6 +10,19 @@
     - geerlingguy.homebrew
 
   tasks:
+    - name: checkout flow-debugproxy
+      git:
+        repo: https://github.com/dfeyer/flow-debugproxy.git
+        dest: "/Users/{{ user }}/go/src/github.com/dfeyer/flow-debugproxy"
+        version: master
+      register: flow_debugproxy_change
+
+    - name: build flow-debugproxy
+      shell: "export GOPATH=/Users/{{ user }}/go; /usr/local/bin/go get && /usr/local/bin/go build"
+      args:
+        chdir: "/Users/{{ user }}/go/src/github.com/dfeyer/flow-debugproxy"
+      when: flow_debugproxy_change.changed
+
     - name: Create folder for vhosts
       file:
         path: "/Users/{{ user }}/vhosts"
