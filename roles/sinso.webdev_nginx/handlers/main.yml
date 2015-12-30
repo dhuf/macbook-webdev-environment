@@ -1,0 +1,6 @@
+---
+- name: "restart nginx"
+  shell: "launchctl {{ item }} /Library/LaunchDaemons/homebrew.mxcl.nginx.plist"
+  with_items:
+    - 'unload'
+    - 'load'

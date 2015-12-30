@@ -1,0 +1,5 @@
+---
+webdev_nginx_user: "{{ webdev_user }}"
+webdev_nginx_group: "{{ webdev_group }}"
+webdev_nginx_documentroot: "{{ webdev_projectspath }}{{ name }}/"
+webdev_nginx_domain: "{{ name }}.dev"

@@ -1,0 +1,6 @@
+---
+- name: "restart dnsmasq"
+  shell: "launchctl {{ item }} /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist"
+  with_items:
+    - 'unload'
+    - 'load'

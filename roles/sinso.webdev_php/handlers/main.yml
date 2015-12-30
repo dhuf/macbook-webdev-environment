@@ -1,0 +1,6 @@
+---
+- name: "restart php-fpm"
+  shell: "launchctl {{ item[0] }} /Library/LaunchDaemons/homebrew.mxcl.{{ webdev_php_versions[item[1]].package }}.plist"
+  with_nested:
+    - [ 'unload', 'load' ]
+    - "{{ webdev_php_versions.keys() }}"

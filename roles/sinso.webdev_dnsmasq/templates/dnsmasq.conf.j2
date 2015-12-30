@@ -1,0 +1,3 @@
+{% for key in webdev_dnsmasq_domains %}
+address=/.{{ key }}/{{ webdev_dnsmasq_domains[key] }}
+{% endfor %}

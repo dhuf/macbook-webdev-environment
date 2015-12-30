@@ -1,0 +1,22 @@
+---
+- hosts: localhost
+  connection: local
+
+  roles:
+    - sinso.webdev
+    - sinso.webdev_php
+    - sinso.webdev_nginx
+    - sinso.webdev_mariadb
+
+  tasks:
+    - name: "{{ name }}: create vhost folder"
+      file:
+        path: "{{ webdev_projectspath }}{{ name }}"
+        state: directory
+        owner: "{{ webdev_user }}"
+        group: "{{ webdev_group }}"
+
+
+    - debug: msg="{{ name }}"
+    - debug: msg="{{ application }}"
+    - debug: msg="{{ webdev_nginx_user }}"

@@ -24,4 +24,4 @@ sudo ansible-galaxy install -r ansible-playbooks.requirements.txt --force
 #
 # Run Playbook
 #
-sudo ansible-playbook main.yml -i inventory -e "user=`whoami`"
+sudo ansible-playbook main.yml --skip-tags "instance" -i inventory -e "user=`whoami`"

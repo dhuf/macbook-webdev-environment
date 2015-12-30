@@ -1,0 +1,24 @@
+---
+- name: install dnsmasq
+  homebrew:
+    name: go
+    state: present
+
+- name: checkout flow-debugproxy
+  git:
+    repo: https://github.com/dfeyer/flow-debugproxy.git
+    dest: "{{ webdev_flow_debugproxy_path }}"
+    version: master
+  register: flow_debugproxy_change
+
+- name: build flow-debugproxy
+  shell: "export GOPATH={{ webdev_flow_debugproxy_gopath }}; {{ webdev_homebrew_rootpath }}bin/go get && {{ webdev_homebrew_rootpath }}bin/go build"
+  args:
+    chdir: "{{ webdev_flow_debugproxy_path }}"
+  when: flow_debugproxy_change.changed
+
+- name: create symlink for flow-debugproxy executable
+  file:
+    dest: /usr/local/bin/flow-debugproxy
+    src: "{{ webdev_flow_debugproxy_path }}flow-debugproxy"
+    state: link

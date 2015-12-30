@@ -17,14 +17,12 @@ homebrew_installed_packages:
   - ansible
   - autoconf
   - bash-completion
-  - behat
   - boot2docker
   - dnsmasq
   - docker
   - elasticsearch17
   - gettext
   - git
-  - go
   - gpg
   - htop
   - hub
@@ -33,30 +31,7 @@ homebrew_installed_packages:
   - libevent
   - packer
   - python
-  - sqlite
-  - mariadb
-  - nginx
-  - npm
   - nvm
-  - php55
-  - php55-xdebug
-  - php55-opcache
-  - php55-mcrypt
-  - php55-imagick
-  - php55-gmagick
-  - php56
-  - php56-xdebug
-  - php56-opcache
-  - php56-mcrypt
-  - php56-imagick
-  - php56-gmagick
-  - php70
-  - php70-xdebug
-  - php70-opcache
-  - php70-mcrypt
-  - php70-imagick
-  - phpunit
-  - selenium-server-standalone
   - ssh-copy-id
 #  - cowsay
 #  - ios-sim
@@ -70,7 +45,6 @@ homebrew_installed_packages:
   - wrk
   - zsh
   - brew-cask
-  - composer
 
 homebrew_taps:
   - caskroom/cask

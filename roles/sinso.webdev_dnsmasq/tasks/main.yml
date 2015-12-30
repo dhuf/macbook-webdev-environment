@@ -1,0 +1,31 @@
+---
+- name: install dnsmasq
+  homebrew:
+    name: dnsmasq
+    state: present
+  notify: restart dnsmasq
+
+- name: configure dnsmasq
+  template:
+    dest: "{{ webdev_homebrew_rootpath }}etc/dnsmasq.conf"
+    src: "dnsmasq.conf.j2"
+    owner: "{{ webdev_user }}"
+    group: "{{ webdev_group }}"
+  notify: restart dnsmasq
+
+- name: configure DNS resolver
+  template:
+    dest: "/etc/resolver/{{ item.key }}"
+    src: "resolver.j2"
+    owner: "{{ webdev_user }}"
+    group: "{{ webdev_group }}"
+  with_dict: "{{ webdev_dnsmasq_domains }}"
+  notify: restart dnsmasq
+
+- name: create symlink for LaunchDaemon
+  file:
+    path: "/Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist"
+    state: link
+    src: "/usr/local/opt/dnsmasq/homebrew.mxcl.dnsmasq.plist"
+  sudo: true
+  notify: restart dnsmasq

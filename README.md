@@ -72,6 +72,7 @@ Inspired by
 * http://blog.frd.mn/install-nginx-php-fpm-mysql-and-phpmyadmin-on-os-x-mavericks-using-homebrew/
 * https://robots.thoughtbot.com/starting-and-stopping-background-services-with-homebrew
 * http://cmall.github.io/LocalHomePage/
+* https://groups.google.com/forum/#!msg/ansible-project/OPCESPvMppg/lrLOqdo0frEJ
 
 
 # Mac Development Ansible Playbook

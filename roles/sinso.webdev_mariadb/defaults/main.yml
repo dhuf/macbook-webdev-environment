@@ -1,0 +1,11 @@
+---
+webdev_mariadb_user: "{{ webdev_user }}"
+
+webdev_mariadb_server_host: 127.0.0.1
+webdev_mariadb_server_user: root
+webdev_mariadb_server_password: 'jrdev83'
+
+webdev_mariadb_instance_encoding: utf8
+webdev_mariadb_instance_name: "{{ name }}"
+webdev_mariadb_instance_password: ''
+webdev_mariadb_instance_privileges: "{{ name }}.*:ALL,GRANT"

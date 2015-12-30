@@ -1,0 +1,19 @@
+---
+- name: "{{ name }}: create database"
+  mysql_db:
+    name: "{{ name }}"
+    encoding: "{{ webdev_mariadb_instance_encoding }}"
+    login_host: "{{ webdev_mariadb_server_host }}"
+    login_user: "{{ webdev_mariadb_server_user }}"
+    login_password: "{{ webdev_mariadb_server_password }}"
+  tags: instance
+
+- name: "{{ name }}: create database user"
+  mysql_user:
+    name: "{{ webdev_mariadb_instance_name }}"
+    password: "{{ webdev_mariadb_instance_password }}"
+    priv: "{{ webdev_mariadb_instance_privileges }}"
+    login_host: "{{ webdev_mariadb_server_host }}"
+    login_user: "{{ webdev_mariadb_server_user }}"
+    login_password: "{{ webdev_mariadb_server_password }}"
+  tags: instance

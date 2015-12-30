@@ -1,0 +1,6 @@
+---
+webdev_user: "{{ user }}"
+webdev_group: staff
+webdev_home: "/Users/{{ webdev_user }}/"
+webdev_projectspath: "{{ webdev_home }}vhosts/"
+webdev_homebrew_rootpath: /usr/local/
