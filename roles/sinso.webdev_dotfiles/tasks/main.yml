@@ -15,7 +15,7 @@
     state: directory
     owner: "{{ webdev_dotfiles_user }}"
     group: "{{ webdev_dotfiles_group }}"
-    mode: 0775
+    mode: u=rwX,g=rX,o=rX
     recurse: yes
   with_items:
     - "{{ webdev_dotfiles_home }}.oh-my-zsh"
