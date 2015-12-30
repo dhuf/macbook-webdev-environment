@@ -13,6 +13,13 @@
     group: "{{ webdev_group }}"
   notify: restart dnsmasq
 
+- name: create resolver folder
+  file:
+    path: /etc/resolver/
+    state: directory
+    owner: "{{ webdev_user }}"
+    group: "{{ webdev_group }}"
+
 - name: configure DNS resolver
   template:
     dest: "/etc/resolver/{{ item.key }}"
