@@ -30,6 +30,7 @@
     - kdiff3
     - openssl
     - pv
+    - tmux
   #  - drush
     - wget
     - wrk
