@@ -1,0 +1,5 @@
+---
+webdev_dotfiles_user: "{{ webdev_user }}"
+webdev_dotfiles_group: "{{ webdev_group }}"
+
+webdev_dotfiles_home: "{{ webdev_home }}"

@@ -1,0 +1,39 @@
+---
+- name: install zsh
+  homebrew:
+    name: zsh
+    state: present
+
+- name: install oh-my-zsh
+  git:
+    repo: https://github.com/robbyrussell/oh-my-zsh
+    dest: "{{ webdev_dotfiles_home }}.oh-my-zsh"
+
+- name: set permissions
+  file:
+    path: "{{ item }}"
+    state: directory
+    owner: "{{ webdev_dotfiles_user }}"
+    group: "{{ webdev_dotfiles_group }}"
+    mode: 0775
+    recurse: yes
+  with_items:
+    - "{{ webdev_dotfiles_home }}.oh-my-zsh"
+
+- name: set default shell
+  user:
+    name: "{{ webdev_dotfiles_user }}"
+    shell: /bin/zsh
+
+- name: list dotfiles
+  debug:
+    msg: "{{ item }}"
+  with_fileglob:
+    - ../templates/*.j2
+
+- name: copy dotfiles
+  template:
+    src: "{{ item }}"
+    dest: "{{ webdev_dotfiles_home }}{{ item | basename | regex_replace('.j2','') }}"
+  with_fileglob:
+    - ../templates/*.j2

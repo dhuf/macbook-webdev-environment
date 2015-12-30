@@ -4,6 +4,7 @@
 
   roles:
     - sinso.webdev
+    - sinso.webdev_dotfiles
     - sinso.webdev_nginx
     - sinso.webdev_php
     - sinso.webdev_mariadb
