@@ -1,5 +1,17 @@
 ---
 
+- name: debug Instance Notification
+  debug: msg="Remove this when installing for the first time..."
+  tags: instance
+
+- name: "add taps"
+  homebrew_tap:
+    tap: "{{ item }}"
+    state: present
+  with_items:
+    - caskroom/cask
+  tags: setup
+
 - name: "install packages"
   homebrew:
     name: "{{ item }}"
@@ -30,12 +42,14 @@
     - kdiff3
     - openssl
     - pv
+    - ncdu
     - tmux
   #  - drush
     - wget
     - wrk
     - zsh
-    #- brew-cask
+    - brew-cask
+  ignore_errors: yes
   tags: setup
 
 - name: set permissions

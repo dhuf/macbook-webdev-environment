@@ -2,30 +2,14 @@
 - hosts: localhost
   connection: local
 
-  vars_files:
-    - vars/main.yml
-
   roles:
-    - geerlingguy.homebrew
-
-  tasks:
-    - name: create symlinks for LaunchDaemons
-      file:
-        path: "/Library/LaunchDaemons/homebrew.mxcl.{{ item.key }}.plist"
-        state: link
-        src: "/usr/local/opt/{{ item.value }}.plist"
-      with_dict:
-        elasticsearch17: elasticsearch17/homebrew.mxcl.elasticsearch17
-
-
-
-#To have launchd start homebrew/versions/elasticsearch17 at login:
-#  mkdir -p ~/Library/LaunchAgents
-#  ln -sfv /usr/local/opt/elasticsearch17/*.plist ~/Library/LaunchAgents
-#Then to load homebrew/versions/elasticsearch17 now:
-#  launchctl load ~/Library/LaunchAgents/homebrew.mxcl.elasticsearch17.plist
-#Or, if you don't want/need launchctl, you can just run:
-#  elasticsearch --config=/usr/local/opt/elasticsearch17/config/elasticsearch.yml
-
-
-# /usr/local/opt/php56/sbin/php-fpm --fpm-config /usr/local/etc/php/5.6/php-fpm.conf
+    - sinso.webdev
+    - sinso.webdev_dotfiles
+    - sinso.webdev_elasticsearch
+    - sinso.webdev_nginx
+    - sinso.webdev_php
+    #- sinso.webdev_mariadb
+    #- sinso.webdev_flow_debugproxy
+    #- sinso.webdev_dnsmasq
+    #- sinso.webdev_grunt
+    #- sinso.webdev_selenium

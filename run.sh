@@ -18,7 +18,7 @@ sudo brew install ansible
 #
 # Prepare Ansible Playbooks
 #
-sudo ansible-galaxy install -r ansible-playbooks.requirements.txt --force
+#sudo ansible-galaxy install -r ansible-playbooks.requirements.txt --force
 
 #
 # Install python (to avoid conflict between default vs. homebrew python)
