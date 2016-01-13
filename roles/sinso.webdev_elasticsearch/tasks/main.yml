@@ -3,6 +3,8 @@
   homebrew_cask:
     name: java
     state: present
+  environment:
+    HOMEBREW_CASK_OPTS: --appdir=/Applications
   tags: setup
 
 - name: "add homebrew tap 'versions'"

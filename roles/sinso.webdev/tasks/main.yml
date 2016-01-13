@@ -52,6 +52,17 @@
   ignore_errors: yes
   tags: setup
 
+- name: install cask packages
+  homebrew_cask:
+    name: "{{ item }}"
+    state: present
+  environment:
+    HOMEBREW_CASK_OPTS: --appdir=/Applications
+  with_items:
+    - phpstorm
+    - microsoft-office
+  tags: setup
+
 - name: set permissions
   file:
     path: "{{ item }}"
