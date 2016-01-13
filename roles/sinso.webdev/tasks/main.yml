@@ -49,6 +49,7 @@
     - wrk
     - zsh
     - brew-cask
+    - p7zip
   ignore_errors: yes
   tags: setup
 
@@ -61,6 +62,24 @@
   with_items:
     - phpstorm
     - microsoft-office
+    - firefox
+    - google-chrome
+    - adobe-reader
+    - vlc
+    - iterm2
+    - sublime-text
+    - keepassx
+    - alfred
+    - dropbox
+    - slack
+    - virtualbox
+    - vagrant
+    - skype
+    - atom
+   # - flux
+   # - seil
+    - sequel-pro
+    - microsoft-lync 
   tags: setup
 
 - name: set permissions
