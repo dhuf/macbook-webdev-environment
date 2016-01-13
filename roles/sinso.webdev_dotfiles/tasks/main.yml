@@ -9,6 +9,12 @@
     repo: https://github.com/robbyrussell/oh-my-zsh
     dest: "{{ webdev_dotfiles_home }}.oh-my-zsh"
 
+- name: add zsh to available shells
+  lineinfile:
+    dest: /etc/shells
+    line: "{{ webdev_homebrew_rootpath }}bin/zsh"
+    state: present
+
 - name: set permissions
   file:
     path: "{{ item }}"
