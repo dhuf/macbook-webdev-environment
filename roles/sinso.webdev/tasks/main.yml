@@ -79,7 +79,13 @@
    # - flux
    # - seil
     - sequel-pro
-    - microsoft-lync 
+    - microsoft-lync
+    - caffeine
+    - dash
+    - spectacle
+    - toggldesktop
+    - dockertoolbox
+    - citrix-receiver
   tags: setup
 
 - name: set permissions
