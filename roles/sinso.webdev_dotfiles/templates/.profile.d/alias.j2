@@ -24,9 +24,10 @@ alias mysql.restart='mysql.stop && mysql.start'
 
 alias selenium.start="selenium-server -p 4444"
 
-alias use_php55="sudo brew unlink php55 && sudo brew unlink php56 && sudo brew unlink php70 && sudo brew link php55"
-alias use_php56="sudo brew unlink php55 && sudo brew unlink php56 && sudo brew unlink php70 && sudo brew link php56"
-alias use_php70="sudo brew unlink php55 && sudo brew unlink php56 && sudo brew unlink php70 && sudo brew link php70"
+alias use_php55="sudo brew unlink php54 && sudo brew unlink php55 && sudo brew unlink php56 && sudo brew unlink php70 && sudo brew link php54"
+alias use_php55="sudo brew unlink php54 && sudo brew unlink php55 && sudo brew unlink php56 && sudo brew unlink php70 && sudo brew link php55"
+alias use_php56="sudo brew unlink php54 && sudo brew unlink php55 && sudo brew unlink php56 && sudo brew unlink php70 && sudo brew link php56"
+alias use_php70="sudo brew unlink php54 && sudo brew unlink php55 && sudo brew unlink php56 && sudo brew unlink php70 && sudo brew link php70"
 
 alias dnsmasq.start='sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist'
 alias dnsmasq.stop='sudo launchctl unload /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist'
@@ -42,4 +43,4 @@ alias nginx.logs.default-ssl.access='tail -250f /usr/local/etc/nginx/logs/defaul
 alias nginx.logs.phpmyadmin.error='tail -250f /usr/local/etc/nginx/logs/phpmyadmin.error.log'
 alias nginx.logs.phpmyadmin.access='tail -250f /usr/local/etc/nginx/logs/phpmyadmin.access.log'
 
-
+alias dnsflush='dscacheutil -flushcache'
