@@ -33,13 +33,26 @@
   with_items:
     - "{{ webdev_dotfiles_home }}.oh-my-zsh"
 
-- name: copy dotfiles
-  template:
-    src: "{{ item }}"
-    dest: "{{ webdev_dotfiles_home }}{{ item | basename | regex_replace('.j2','') }}"
+- name: create folder for dotfiles
+  file:
+    path: "{{ webdev_dotfiles_home | regex_replace('/$', '') }}{{ item | dirname | regex_replace('.*sinso.webdev_dotfiles/templates', '') }}/"
+    state: directory
     owner: "{{ webdev_dotfiles_user }}"
     group: "{{ webdev_dotfiles_group }}"
     mode: u=rwX,g=rX,o=rX
   with_fileglob:
     - ../templates/.*.j2
     - ../templates/*.j2
+    - ../templates/.profile.d/*.j2
+
+- name: copy dotfiles
+  template:
+    src: "{{ item }}"
+    dest: "{{ webdev_dotfiles_home | regex_replace('/$', '') }}{{ item | dirname | regex_replace('.*sinso.webdev_dotfiles/templates', '') }}/{{ item | basename | regex_replace('.j2','') }}"
+    owner: "{{ webdev_dotfiles_user }}"
+    group: "{{ webdev_dotfiles_group }}"
+    mode: u=rwX,g=rX,o=rX
+  with_fileglob:
+    - ../templates/.*.j2
+    - ../templates/*.j2
+    - ../templates/.profile.d/*.j2
