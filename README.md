@@ -25,6 +25,28 @@ sudo lsof -Pni4 | grep LISTEN | grep php
 
 
 
+Docker
+------
+The Docker Toolbox is installed by default. You can create a docker vm (comparable to boot2docker) with Docker Machine as followed:
+
+```
+# create docker VM in virtualbox
+docker-machine create --driver virtualbox dev
+
+# set env vars for docker
+eval "$(docker-machine env dev)"
+
+# get IP
+docker-machine ip dev
+```
+
+You then can use docker as normal. E.g. start a Solr container
+
+```
+docker run --name foobar-solr --publish 8080:8080 sinso/solr-typo3
+```
+
+
 Xdebug
 ------
 
