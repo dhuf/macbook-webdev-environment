@@ -23,7 +23,11 @@ Check if php-fpm is running
 sudo lsof -Pni4 | grep LISTEN | grep php
 ```
 
+Restart php (here version 7.0)
 
+```
+sudo brew services restart homebrew/php/php70
+```
 
 Docker
 ------
