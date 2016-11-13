@@ -87,7 +87,6 @@
     - dockertoolbox
     - citrix-receiver
     - krita
-    - spectacle
   tags: setup
 
 - name: set permissions
