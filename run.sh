@@ -12,7 +12,7 @@ sudo chown root /usr/local/bin/brew
 #
 # Install Ansible
 #
-sudo brew install ansible
+brew install ansible
 
 
 #
@@ -23,7 +23,7 @@ sudo brew install ansible
 #
 # Install python (to avoid conflict between default vs. homebrew python)
 #
-sudo brew install python
+brew install python
 
 #
 # Hotfix https://github.com/ansible/ansible-modules-core/issues/2537
