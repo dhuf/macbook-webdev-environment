@@ -62,6 +62,6 @@
     path: "/Library/LaunchDaemons/homebrew.mxcl.{{ webdev_php_versions[version].package }}.plist"
     state: link
     src: "/usr/local/opt/{{ webdev_php_versions[version].package }}/homebrew.mxcl.{{ webdev_php_versions[version].package }}.plist"
-  sudo: true
+  become: true
   notify: restart php-fpm
   tags: setup
