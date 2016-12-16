@@ -33,4 +33,4 @@ sudo curl -o /usr/local/Cellar/ansible/1.9.4_1/libexec/lib/python2.7/site-packag
 #
 # Run Playbook
 #
-sudo ansible-playbook main.yml --skip-tags "instance" -i inventory -e "user=`whoami`"
+ansible-playbook main.yml --skip-tags "instance" -i inventory -e "user=`whoami`" --ask-become-pass
