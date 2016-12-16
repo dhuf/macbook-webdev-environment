@@ -19,7 +19,8 @@
     state: directory
     owner: "{{ webdev_user }}"
     group: "{{ webdev_group }}"
-
+  become: true
+  
 - name: configure DNS resolver
   template:
     dest: "/etc/resolver/{{ item.key }}"
@@ -35,3 +36,4 @@
     state: link
     src: "/usr/local/opt/dnsmasq/homebrew.mxcl.dnsmasq.plist"
   notify: restart dnsmasq
+  become: true
