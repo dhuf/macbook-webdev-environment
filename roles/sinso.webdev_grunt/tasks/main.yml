@@ -20,3 +20,4 @@
     name: compass
     state: latest
     user_install: no
+  become: true
