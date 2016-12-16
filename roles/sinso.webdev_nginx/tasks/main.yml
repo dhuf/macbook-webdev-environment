@@ -52,7 +52,7 @@
     path: "/Library/LaunchDaemons/homebrew.mxcl.nginx.plist"
     state: link
     src: "/usr/local/opt/nginx/homebrew.mxcl.nginx.plist"
-  sudo: true
+  become: true
   notify: restart nginx
   tags: setup
 
