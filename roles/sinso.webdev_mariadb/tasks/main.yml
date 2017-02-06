@@ -39,7 +39,7 @@
     path: "/Library/LaunchDaemons/homebrew.mxcl.mariadb.plist"
     state: link
     src: "/usr/local/opt/mariadb/homebrew.mxcl.mariadb.plist"
-  sudo: true
+  become: true
   notify: restart mariadb
   tags: setup
 
