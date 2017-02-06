@@ -1,4 +1,4 @@
 #!/bin/bash
 
-sudo brew update
-sudo brew upgrade
+brew update
+brew upgrade
