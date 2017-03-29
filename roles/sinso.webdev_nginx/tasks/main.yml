@@ -46,6 +46,7 @@
   with_items:
     - /usr/local/etc/nginx/
   tags: setup
+  become: true
 
 - name: create symlink for LaunchDaemon
   file:

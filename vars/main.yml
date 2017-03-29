@@ -37,14 +37,14 @@ homebrew_installed_packages:
 #  - ios-sim
   - readline
   - subversion
-  - kdiff3
+#  - kdiff3
   - openssl
   - pv
 #  - drush
   - wget
   - wrk
   - zsh
-  - brew-cask
+#  - brew-cask
 
 homebrew_taps:
   - caskroom/cask

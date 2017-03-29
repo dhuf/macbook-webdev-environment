@@ -39,7 +39,7 @@
   #  - ios-sim
     - readline
     - subversion
-    - kdiff3
+  #  - kdiff3
     - openssl
     - pv
     - ncdu
@@ -48,7 +48,7 @@
     - wget
     - wrk
     - zsh
-    - brew-cask
+  #  - brew-cask
     - p7zip
   ignore_errors: yes
   tags: setup
@@ -84,7 +84,7 @@
     - dash
     - spectacle
     - toggldesktop
-    - dockertoolbox
+   # - dockertoolbox
     - citrix-receiver
     - krita
   tags: setup

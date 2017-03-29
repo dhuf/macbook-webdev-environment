@@ -34,7 +34,7 @@
     recurse: yes
   with_items:
     - "{{ webdev_dotfiles_home }}.oh-my-zsh"
-    - "{{ webdev_dotfiles_home }}"
+#    - "{{ webdev_dotfiles_home }}"
 
 - name: create folder for dotfiles
   file:
