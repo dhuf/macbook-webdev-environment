@@ -35,6 +35,8 @@ alias dnsmasq.restart='dnsmasq.stop && dnsmasq.start'
 
 
 alias debugproxy="${GOPATH}/src/github.com/dfeyer/flow-debugproxy/flow-debugproxy --xdebug 127.0.0.1:9000 --ide 127.0.0.1:9010 --vv"
+alias xdebug.enable="export XDEBUG_CONFIG=\"remote_enable=1 remote_mode=req remote_port=9000 remote_host=127.0.0.1 remote_connect_back=0\""
+alias xdebug.disable="export XDEBUG_CONFIG=\"\""
 
 alias nginx.logs.error='tail -250f /usr/local/etc/nginx/logs/error.log'
 alias nginx.logs.access='tail -250f /usr/local/etc/nginx/logs/access.log'
