@@ -39,7 +39,6 @@
   #  - ios-sim
     - readline
     - subversion
-    - kdiff3
     - openssl
     - pv
     - ncdu
@@ -64,7 +63,6 @@
     - microsoft-office
     - firefox
     - google-chrome
-    - adobe-reader
     - vlc
     - iterm2
     - sublime-text
@@ -76,6 +74,7 @@
     - vagrant
     - skype
     - atom
+    - kdiff3
    # - flux
    # - seil
     - sequel-pro
@@ -84,7 +83,7 @@
     - dash
     - spectacle
     - toggldesktop
-    - dockertoolbox
+    - docker-toolbox
     - citrix-receiver
     - krita
   tags: setup
