@@ -21,7 +21,7 @@
 
 - name: install elasticsearch
   homebrew:
-    name: elasticsearch17
+    name: elasticsearch
     state: present
   notify: restart elasticsearch
   tags: setup
