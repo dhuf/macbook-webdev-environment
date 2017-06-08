@@ -35,6 +35,7 @@
   with_items:
     - "{{ webdev_dotfiles_home }}.oh-my-zsh"
     - "{{ webdev_dotfiles_home }}"
+  become: true
 
 - name: create folder for dotfiles
   file:
