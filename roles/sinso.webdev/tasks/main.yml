@@ -47,7 +47,7 @@
     - wget
     - wrk
     - zsh
-    - brew-cask
+  #  - brew-cask
     - p7zip
   ignore_errors: yes
   tags: setup

@@ -166,12 +166,10 @@ Packages (installed with Homebrew):
   - ios-sim
   - readline
   - subversion
-  - kdiff3
   - openssl
   - pv
   - drush
   - wget
-  - brew-cask
 
 My [dotfiles](https://github.com/geerlingguy/dotfiles) are also installed into the current user's home directory, including the `.osx` dotfile for configuring many aspects of Mac OS X for better performance and ease of use.
 
