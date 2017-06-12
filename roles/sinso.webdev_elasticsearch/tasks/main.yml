@@ -28,7 +28,7 @@
 
 - name: configure elasticsearch for Neos
   template:
-    dest: /usr/local/Cellar/elasticsearch17/1.7.4/config/elasticsearch.yml
+    dest: "/usr/local/Cellar/elasticsearch@1.7/1.7.6_1/config/elasticsearch.yml"
     src: elasticsearch.yml.j2
   notify: restart elasticsearch
   tags: setup
@@ -42,8 +42,8 @@
 
 - name: create symlink for LaunchAgent
   file:
-    path: "{{ webdev_home }}Library/LaunchAgents/homebrew.mxcl.elasticsearch17.plist"
+    path: "{{ webdev_home }}Library/LaunchAgents/homebrew.mxcl.elasticsearch@1.7.plist"
     state: link
-    src: "{{ webdev_homebrew_rootpath }}opt/elasticsearch17/homebrew.mxcl.elasticsearch17.plist"
+    src: "{{ webdev_homebrew_rootpath }}opt/elasticsearch@1.7/homebrew.mxcl.elasticsearch@1.7.plist"
   notify: restart elasticsearch
   tags: setup
