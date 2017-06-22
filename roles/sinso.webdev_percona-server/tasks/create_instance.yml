@@ -1,0 +1,19 @@
+---
+- name: "{{ name }}: create database"
+  mysql_db:
+    name: "{{ name }}"
+    encoding: "{{ webdev_percona-server_instance_encoding }}"
+    login_host: "{{ webdev_percona-server_server_host }}"
+    login_user: "{{ webdev_percona-server_server_user }}"
+    login_password: "{{ webdev_percona-server_server_password }}"
+  tags: instance
+
+- name: "{{ name }}: create database user"
+  mysql_user:
+    name: "{{ webdev_percona-server_instance_name }}"
+    password: "{{ webdev_percona-server_instance_password }}"
+    priv: "{{ webdev_percona-server_instance_privileges }}"
+    login_host: "{{ webdev_percona-server_server_host }}"
+    login_user: "{{ webdev_percona-server_server_user }}"
+    login_password: "{{ webdev_percona-server_server_password }}"
+  tags: instance

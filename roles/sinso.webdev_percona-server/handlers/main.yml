@@ -1,0 +1,6 @@
+---
+- name: "restart percona-server"
+  shell: "launchctl {{ item }} /Library/LaunchDaemons/homebrew.mxcl.percona-server.plist"
+  with_items:
+    - 'unload'
+    - 'load'

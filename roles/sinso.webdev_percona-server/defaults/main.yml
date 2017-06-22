@@ -1,0 +1,11 @@
+---
+webdev_percona-server_user: "{{ webdev_user }}"
+
+webdev_percona-server_server_host: 127.0.0.1
+webdev_percona-server_server_user: root
+webdev_percona-server_server_password: ''
+
+webdev_percona-server_instance_encoding: utf8
+webdev_percona-server_instance_name: "{{ name }}"
+webdev_percona-server_instance_password: ''
+webdev_percona-server_instance_privileges: "{{ name }}.*:ALL,GRANT"
